@@ -1,0 +1,57 @@
+body{
+    background: url(./images/BackgroundNoDog.jpg);
+        background-repeat: no-repeat;
+        height:auto;
+        width:auto;
+}
+
+
+header{
+    text-align: center;
+    color: black;
+}
+
+.loginform{
+    text-align: center;
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+      "header header"
+      "form1 form2";
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  /* Style the header */
+  header {
+    grid-area: header;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+  }
+
+  /* Style the forms */
+  form {
+    border: 1px solid #ccc;
+    padding: 10px;
+   
+  }
+
+  form:nth-of-type(1) {
+    grid-area: form1;
+  }
+
+  form:nth-of-type(2) {
+    grid-area: form2;
+    }
+/* Show/hide forms on button click 
+
+#show-form1:checked ~ .container form:nth-of-type(1),
+#show-form2:checked ~ .container form:nth-of-type(2) {
+  visibility: visible;
+    }
+*/
