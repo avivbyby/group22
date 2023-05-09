@@ -31,20 +31,21 @@
     }
 
     function openForm3() {
-      document.getElementById("form1").style.display = "block";
+      document.getElementById("form1").style.display = "none";
       document.getElementById("form2").style.display = "none";
       document.getElementById("form3").style.display = "block";
+
     }
   </script>
 </head>
 <body>
-  <h1>Button Forms Example</h1>
+  <h1>Registration</h1>
   
-  <button onclick="openForm1()">Open Form 1</button>
-  <button onclick="openForm2()">Open Form 2</button>
+  <button onclick="openForm1()">I have a dog!</button>
+  <button onclick="openForm2()">I am a doggysitter!</button>
   
   <form id="form1" style="display: none;">
-    <h2>Form 1</h2>
+    
     <label for="full_name">Full name:</label>
     <input type="text" id="full_name" name="full_name">
     <br>
@@ -57,15 +58,16 @@
     <label for="email">Email:</label>
     <input type="email" id="email" name="email">
     <br>
+    <button type="button" onclick="openForm3()">Add dog</button>
 
-    <button onclick="openForm3()">Open Form 3</button>
-
+    <br>
+    <br>
     <input type="submit" value="Submit">
 
   </form>
   
   <form id="form2" style="display: none;">
-    <h2>Form 2</h2>
+    
     <label for="full_name_sitter">Full name:</label>
     <input type="text" id="full_name_sitter" name="full_name_sitter">
     <br>
@@ -83,31 +85,32 @@
     <label for="sitter_pic">Picture:</label>
     <input type="file" id="sitter_pic" name="sitter_pic">
     <br>
+    <input type="submit" value="Submit">
   </form>
-  <br>
-    <input type="submit" value="Submit">
- 
-    <form>
-      <form id="form3" style="display: none;">
-        <h3>Form 3</h3>
-    <br>
-    <label for="dog_name">Dog name:</label>
-    <input type="text" id="dog_name" name="dog_name">
-    <br>
-    <br>
-    <label for="dog_age">Dog age:</label>
-    <input type="text" id="dog_age" name="dog_age">
-    <br>
-    <br>
-    <label for="dog_size">Dog size:</label>
-    <input type="text" id="dog_size" name="dog_size">
-    <br>
-    <br>
-    <label for="dog_notes">Dog notes:</label>
-    <input type="text" id="dog_notes" name="dog_notes">
-    <br>
-    <label for="dog_pic">Dog pic:</label>
-    <input type="file" id="dog_pic" name="dog_pic">
-    <br>
-    <input type="submit" value="Submit">
-      </form>
+  
+    <form id="form3" style="display: none;">
+      <h3>Form 3</h3>
+      <br>
+      <label for="dog_name">Dog name:</label>
+      <input type="text" id="dog_name" name="dog_name">
+      <br>
+      <br>
+      <label for="dog_age">Dog age:</label>
+      <input type="text" id="dog_age" name="dog_age">
+      <br>
+      <br>
+      <label for="dog_size">Dog size:</label>
+      <input type="text" id="dog_size" name="dog_size">
+      <br>
+      <br>
+      <label for="dog_notes">Dog notes:</label>
+      <input type="text" id="dog_notes" name="dog_notes">
+      <br>
+      <label for="dog_pic">Dog pic:</label>
+      <input type="file" id="dog_pic" name="dog_pic">
+      <br>
+      <button type="button" onclick="openForm3()">Add dog</button>
+      <br>
+      <input type="submit" value="Finish">
+    </form>
+    
