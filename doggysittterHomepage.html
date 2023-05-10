@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Button to open a textbox</title>
+    <script>
+      function showTextbox() {
+        var textbox = document.getElementById("myTextbox");
+        textbox.style.display = "block";
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="showTextbox()">Click me to show textbox</button>
+    <br><br>
+    <input type="text" id="myTextbox" style="display:none;">
+  </body>
+</html>

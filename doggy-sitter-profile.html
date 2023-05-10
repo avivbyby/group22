@@ -1,17 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<link rel="stylesheet" href="style.css">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Page</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <a href="doggy-sitter-profile.html" >Profile</a>
-    <a href="history-doggysitter.html" >History</a>
-
-</body>
-</body>
+<html>
+  <head>
+    <title>My Profile</title>
+  </head>
+  <body>
+    <h1>My Profile</h1>
+    <p><strong>Name:</strong> John Doe</p>
+    <p><strong>Email:</strong> john.doe@example.com</p>
+    <p><strong>Phone:</strong> 555-1234</p>
+    <button onclick="editProfile()">Edit Profile</button>
+    <form id="editForm" style="display:none;">
+      <label for="nameInput">Name:</label>
+      <input type="text" id="nameInput" name="name"><br>
+      <label for="emailInput">Email:</label>
+      <input type="email" id="emailInput" name="email"><br>
+      <label for="phoneInput">Phone:</label>
+      <input type="tel" id="phoneInput" name="phone"><br>
+      <button type="submit">Save Changes</button>
+    </form>
+    <script>
+      function editProfile() {
+        var editForm = document.getElementById("editForm");
+        var currentName = document.querySelector("p:first-of-type").textContent.split(": ")[1];
+        var currentEmail = document.querySelector("p:nth-of-type(2)").textContent.split(": ")[1];
+        var currentPhone = document.querySelector("p:nth-of-type(3)").textContent.split(": ")[1];
+        document.getElementById("nameInput").value = currentName;
+        document.getElementById("emailInput").value = currentEmail;
+        document.getElementById("phoneInput").value = currentPhone;
+        editForm.style.display = "block";
+      }
+      document.getElementById("editForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var newName = document.getElementById("nameInput").value;
+        var newEmail = document.getElementById("emailInput").value;
+        var newPhone = document.getElementById("phoneInput").value;
+        document.querySelector("p:first-of-type").textContent = "Name: " + newName;
+        document.querySelector("p:nth-of-type(2)").textContent = "Email: " + newEmail;
+        document.querySelector("p:nth-of-type(3)").textContent = "Phone: " + newPhone;
+        document.getElementById("editForm").style.display = "none";
+      });
+    </script>
+  </body>
 </html>
