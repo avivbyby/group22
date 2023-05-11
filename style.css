@@ -1,8 +1,8 @@
 body{
   background: url(./images/BackgroundNoDog.jpg);
       background-repeat: no-repeat;
-      height:2vw;
-      width: 2vw;
+      height:auto;
+      width: auto;
 }
 
 
@@ -50,6 +50,13 @@ form:nth-of-type(1) {
 form:nth-of-type(2) {
   grid-area: form2;
   }
+
+  #form1, #form2, #form3{
+    display: none;
+  }
+
+
+
 
   button {
     background-color: #8d5d14; /* Green */
