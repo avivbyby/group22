@@ -3,43 +3,12 @@
 <head>
   <title>Form!</title>
   <link rel="stylesheet" href="style.css">
+  <script defer="" src="./js.js">  </script>
 
-  <style>
-    body {
-      text-align: center;
-    }
-    h1 {
-      margin-top: 50px;
-    }
-    form {
-      display: inline-block;
-      text-align: left;
-      margin-top: 20px;
-    }
-  </style>
-  <script>
-    function openForm1() {
-      document.getElementById("form1").style.display = "block";
-      document.getElementById("form2").style.display = "none";
-      document.getElementById("form3").style.display = "none";
-    }
-    
-    function openForm2() {
-      document.getElementById("form1").style.display = "none";
-      document.getElementById("form2").style.display = "block";
-      document.getElementById("form3").style.display = "none";
-    }
-
-    function openForm3() {
-      document.getElementById("form1").style.display = "none";
-      document.getElementById("form2").style.display = "none";
-      document.getElementById("form3").style.display = "block";
-
-    }
-  </script>
 </head>
 <body>
-  <h1>Registration!</h1>
+ 
+  <h1 id="subheader"> Registration </h1>
   
   <button onclick="openForm1()">I have a dog!</button>
   <button onclick="openForm2()">I am a doggysitter!</button>
@@ -47,16 +16,16 @@
   <form id="form1" >
     
     <label for="full_name">Full name:</label>
-    <input type="text" id="full_name" name="full_name">
+    <input type="text" id="full_name" name="full_name" required>
     <br>
     <label for="phone_number">Phone number:</label>
-    <input type="text" id="phone_number" name="phone_number">
+    <input pattern="^\d{10}$" type="text" id="phone_number" name="phone_number" required>
     <br>
     <label for="address">Address:</label>
-    <input type="text" id="address" name="address">
+    <input type="text" id="address" name="address"  required>
     <br>
     <label for="email">Email:</label>
-    <input type="email" id="email" name="email">
+    <input type="email" id="email" name="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
     <br>
     <button type="button" onclick="openForm3()">Add dog</button>
 
@@ -113,4 +82,3 @@
       <br>
       <input type="submit" value="Finish">
     </form>
-    
