@@ -37,16 +37,20 @@ function openForm1() {
 
 
   function addDog() {
-    var table = document.getElementById("dogs");
+    var table = document.getElementById("dogs").getElementsByTagName('tbody')[0];
     var row = table.insertRow(-1);
     var nameCell = row.insertCell(0);
-    var breedCell = row.insertCell(1);
-    var ageCell = row.insertCell(2);
-    nameCell.innerHTML = '<input type="text" name="dog_name[]">';
-    breedCell.innerHTML = '<input type="text" name="dog_breed[]">';
-    ageCell.innerHTML = '<input type="number" name="dog_age[]">';
+    var ageCell = row.insertCell(1);
+    var sizeCell = row.insertCell(2);
+    var notesCell = row.insertCell(3);
+    var picCell = row.insertCell(4);
+    nameCell.innerHTML = '<input type="text" name="dog_name" required pattern="^[a-zA-Z\-]{2,}$">';
+    ageCell.innerHTML = '<input type="text" name="dog_age" required min="1" max="20" pattern="^[1-9][0-9]?$|^20$">';
+    sizeCell.innerHTML = '<input type="text" name="dog_size" required>';
+    notesCell.innerHTML = '<input type="text" name="dog_notes" maxlength="200" pattern="^[a-zA-Z0-9\s]{1,200}$">';
+    picCell.innerHTML = '<input type="file" name="dog_pic">';
   }
-
+  
 
   var form = document.getElementById("searchForm");
   form.addEventListener("submit", function(event) {
