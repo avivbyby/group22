@@ -1,18 +1,32 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Button to open a textbox</title>
-    <script defer="" src="./js.js">  </script>
-    <script>
-      function showTextbox() {
-        var textbox = document.getElementById("myTextbox");
-        textbox.style.display = "block";
-      }
-    </script>
-  </head>
-  <body>
-    <button onclick="showTextbox()">Click me to show textbox</button>
-    <br><br>
-    <input type="text" id="myTextbox" style="display:none;">
-  </body>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+
+  <title>Homepage</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer="" src="./js.js">  </script>
+</head>
+<body>
+  <button> 
+    <a href="doggy-sitter-profile.html" >Profile</a>
+  </button>
+    <br>
+    <button>
+    <a href="history-doggysitter.html" >History</a>
+  </button>
+  <br>
+    <button>
+        <a href="availability.html">Edit availability</a>
+      </button>
+      <br>
+
+          <button type="button" class="about-us-button">About</button>
+          <br><br>
+          <input type="text" id="myTextbox" style="display:none;">
+  
+          <footer>
+            <p>&copy; 2023 Doggy-site</p>
+          </footer>
+</body>
 </html>

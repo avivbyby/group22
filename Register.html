@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Form!</title>
+  <title>Registration</title>
   <link rel="stylesheet" href="style.css">
   <script defer="" src="./js.js">  </script>
 
@@ -13,72 +13,95 @@
   <button onclick="openForm1()">I have a dog!</button>
   <button onclick="openForm2()">I am a doggysitter!</button>
   
-  <form id="form1" >
+  <form id="form1">
     
     <label for="full_name">Full name:</label>
-    <input type="text" id="full_name" name="full_name" required>
+    <input type="text" id="full_name" name="full_name" required pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$">
+    <br>
     <br>
     <label for="phone_number">Phone number:</label>
-    <input pattern="^\d{10}$" type="text" id="phone_number" name="phone_number" required>
+    <input type="text" id="phone_number" name="phone_number" required pattern="^\d{10}$">
+    <br>
     <br>
     <label for="address">Address:</label>
     <input type="text" id="address" name="address"  required>
     <br>
+    <br>
     <label for="email">Email:</label>
-    <input type="email" id="email" name="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
+    <input type="email" id="email" name="email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
     <br>
-    <button type="button" onclick="openForm3()">Add dog</button>
+    <br>
+    <label for="dogs">Dogs:</label>
+     <table id="dogs">
+      <br>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Size</th>
+        <th>Notes</th>
+        <th>Picture</th>
 
-    <br>
-    <br>
-    <input type="submit" value="Submit">
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="text" id="dog_name" name="dog_name" required pattern="^[a-zA-Z\-]{2,}$"></td>
+        <td> <input type="text" id="dog_age" name="dog_age"  required min="1" max="20" pattern="^[1-9][0-9]?$|^20$"></td>
+        <td><input type="text" id="dog_size" name="dog_size" required ></td>
+        <td><input type="text" id="dog_notes" name="dog_notes" maxlength="200" pattern="^[a-zA-Z0-9\s]{1,200}$"></td>
+        <td><input type="file" id="dog_pic" name="dog_pic"></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <button type="button" onclick="addDog()">Add Dog</button>
+  <br>
+  <button type="submit" value="Submit">Submit</button>
+
 
   </form>
   
   <form id="form2">
     
     <label for="full_name_sitter">Full name:</label>
-    <input type="text" id="full_name_sitter" name="full_name_sitter">
+    <input type="text" id="full_name_sitter" name="full_name_sitter" required pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$">
+    <br>
     <br>
     <label for="phone_number_sitter">Phone number:</label>
-    <input type="text" id="phone_number_sitter" name="phone_number_sitter">
+    <input type="text" id="phone_number_sitter" name="phone_number_sitter" required pattern="^\d{10}$">
+    <br>
     <br>
     <label for="email_sitter">Email:</label>
-    <input type="email" id="email_sitter" name="email_sitter">
+    <input type="email" id="email_sitter" name="email_sitter" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"> 
+    <br>
     <br>
     <label for="area">Area:</label>
-    <input type="text" id="area" name="area">
-    <br> <label for="details_sitter">A little bit about myself:</label>
-    <input type="text" id="details_sitter" name="details_sitter">
+    <select id="area" name="area">
+      <option value="North">Northen district</option>
+      <option value="Center">Central District</option>
+      <option value="South">Southern District</option>
+      
+    </select>
+    <br>
+    <br>
+    <label for="details_sitter">A little bit about myself:</label>
+    <input type="text" id="details_sitter" name="details_sitter" required maxlength="200" pattern="^[a-zA-Z0-9\s]{1,200}$">
+    <br>
     <br>
     <label for="sitter_pic">Picture:</label>
     <input type="file" id="sitter_pic" name="sitter_pic">
     <br>
-    <input type="submit" value="Submit">
+    <br>
+
+    <button type="submit" value="Submit">Submit</button>
+
   </form>
   
-    <form id="form3">
-      <h3>Form 3</h3>
-      <br>
-      <label for="dog_name">Dog name:</label>
-      <input type="text" id="dog_name" name="dog_name">
-      <br>
-      <br>
-      <label for="dog_age">Dog age:</label>
-      <input type="text" id="dog_age" name="dog_age">
-      <br>
-      <br>
-      <label for="dog_size">Dog size:</label>
-      <input type="text" id="dog_size" name="dog_size">
-      <br>
-      <br>
-      <label for="dog_notes">Dog notes:</label>
-      <input type="text" id="dog_notes" name="dog_notes">
-      <br>
-      <label for="dog_pic">Dog pic:</label>
-      <input type="file" id="dog_pic" name="dog_pic">
-      <br>
-      <button type="button" onclick="openForm3()">Add dog</button>
-      <br>
-      <input type="submit" value="Finish">
-    </form>
+  <footer>
+    <p>&copy; 2023 Doggy-site</p>
+  </footer>
+  </body>
+  </html>
+  
+  

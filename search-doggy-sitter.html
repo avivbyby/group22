@@ -1,89 +1,41 @@
-<html lang="en">
-<head>
-  <title>Find keeper&sitter</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer="" src="./js.js">  </script>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
- 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Doggysitter Search</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer="" src="./js.js">  </script>
+  </head>
+  <body>
+    <h1 id="subheader"> Doggysitter search </h1>
+    <form id="searchForm">
+      <label for="fromHour">From Hour:</label>
+      <input type="time" id="fromHour" name="fromHour"><br><br>
 
-</head>
-<body  >
-<div class="container">
-  <div class="row logo logoBord"><img  src="../media/logo.jpg"/></div>
-  <div class="row ">
-  </div>
-  <div class="row">
-    <div class="myForm" >
-  
+      <label for="fromDate">From Date:</label>
+      <input type="date" id="fromDate" name="fromDate"><br><br>
 
-      <div class="form-outline mb-4">
-        <label class="form-label" for="form6Example6">From date</label>
-        <label id="fTimeFromErr" class="errMes"></label>
-        <input type="date" id="apptFrom" name="appt" class="form-control"  required>
-   </div>
+      <label for="toHour">To Hour:</label>
+      <input type="time" id="toHour" name="toHour"><br><br>
 
-   <div class="form-outline mb-4">
-    <label class="form-label" for="form6Example6">From time</label>
-    <label id="fTimeFromErr" class="errMes"></label>
-    <input type="time" id="apptFrom" name="appt" class="form-control"  required>
-</div>
+      <label for="toDate">To Date:</label>
+      <input type="date" id="toDate" name="toDate"><br><br>
 
+      <label for="numDogs">Number of Dogs:</label>
+      <input type="number" id="numDogs" name="numDogs" min="1" max="10"><br><br>
 
-      <div class="form-outline mb-4">
-        <label class="form-label" for="form6Example6">To date</label>
-        <label id="fTimeToErr" class="errMes"></label>
-        <input type="date" id="apptTo" name="appt" class="form-control"  required>
-        
-      </div>
+      <label for="maxPrice">Maximum Price:</label>
+      <input type="number" id="maxPrice" name="maxPrice" min="0" step="10"><br><br>
 
-        <div class="form-outline mb-4">
-          <label class="form-label" for="form6Example6">To time</label>
-          <label id="fTimeToErr" class="errMes"></label>
-          <input type="time" id="apptTo" name="appt" class="form-control"  required>
-          
-        </div>
+      <button type="submit" id="searchButton">Search</button>
+    </form>
 
-  <div class="form-outline mb-4">
-          <label class="form-label" for="form6Example6"> Number of dogs</label>
-          <input type="range" name="weight" id="range_weight" value="1" min="1" max="12" oninput="range_weight_disp.value = range_weight.value">
-          <output  id="range_weight_disp"></output>
-        </div>
-    
-        <div class="form-outline mb-4">
-            <label class="form-label" for="form6Example6">Maxprice</label>
-            <label id="fChildNumErr" class="errMes"></label>
-            <input type="number" id="fchildNum" class="form-control" required/>
-          </div>
-    
-
-      <!-- FIND BTN button -->
-      <button type="submit" onclick="findKS()" id="findResultsBtn"  class="btn  btn-block mb-4 " > Find me a Doggy Sitter</button>
-   
-      </div>
-
-  </div>
-
-  
-</div>
-
-
-
-
-<!--<button onclick="goToPage1()"> click </button>-->
-
-
-    <div id="resDiv">
-      
+    <div id="searchResults">
+      <!-- Search results will be displayed here -->
     </div>
 
-
-
-<footer>
-  
-</footer>
-
-<script src="../static/myJS.js"></script>
-</body>
+    <footer>
+      <p>&copy; 2023 Doggy-site</p>
+    </footer>
+    
+  </body>
 </html>

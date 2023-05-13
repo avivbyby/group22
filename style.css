@@ -2,6 +2,7 @@ body{
   background: url(./images/BackgroundNoDog.jpg);
       background-repeat: no-repeat;
       background-size: cover;
+      text-align:  center;
       
 }
 
@@ -27,19 +28,30 @@ header {
   border-radius: 20px;
   text-align: center;
   grid-area: header;
-  background-color:#3b3b3b;
+  background-color: grey;
   color: #000000;
   padding: auto;
 }
 #subheader{
   text-align: center;
-  font-size: ;
+  font-size: 30;
 }
 
 form {
-  padding: 10px;
+     padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    font-size: large;
+  }
 
-}
+  table {
+    font-size: 1.2em;
+    line-height: 1.5em;
+    border: #8d5d14;
+    border-style:solid;
+    text-align: center;
+
+  }
 
   #form1 {
   grid-area: form1;
@@ -81,15 +93,10 @@ form {
     font-size: 16px;
     margin: 10px;
     cursor: pointer;
+   
   }
   button:hover {
     background-color: #3e8e41;
   }
   
-/* Show/hide forms on button click 
-
-#show-form1:checked ~ .container form:nth-of-type(1),
-#show-form2:checked ~ .container form:nth-of-type(2) {
-visibility: visible;
-    }
-*/
+  
