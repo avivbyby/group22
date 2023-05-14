@@ -1,45 +1,99 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>My Profile</title>
-    <script defer="" src="./js.js">  </script>
-  </head>
-  <body>
-    <h1>My Profile</h1>
-    <p><strong>Name:</strong> John Doe</p>
-    <p><strong>Email:</strong> john.doe@example.com</p>
-    <p><strong>Phone:</strong> 555-1234</p>
-    <button onclick="editProfile()">Edit Profile</button>
-    <form id="editForm" style="display:none;">
-      <label for="nameInput">Name:</label>
-      <input type="text" id="nameInput" name="name"><br>
-      <label for="emailInput">Email:</label>
-      <input type="email" id="emailInput" name="email"><br>
-      <label for="phoneInput">Phone:</label>
-      <input type="tel" id="phoneInput" name="phone"><br>
-      <button type="submit">Save Changes</button>
-    </form>
-    <script>
-      function editProfile() {
-        var editForm = document.getElementById("editForm");
-        var currentName = document.querySelector("p:first-of-type").textContent.split(": ")[1];
-        var currentEmail = document.querySelector("p:nth-of-type(2)").textContent.split(": ")[1];
-        var currentPhone = document.querySelector("p:nth-of-type(3)").textContent.split(": ")[1];
-        document.getElementById("nameInput").value = currentName;
-        document.getElementById("emailInput").value = currentEmail;
-        document.getElementById("phoneInput").value = currentPhone;
-        editForm.style.display = "block";
-      }
-      document.getElementById("editForm").addEventListener("submit", function(event) {
-        event.preventDefault();
-        var newName = document.getElementById("nameInput").value;
-        var newEmail = document.getElementById("emailInput").value;
-        var newPhone = document.getElementById("phoneInput").value;
-        document.querySelector("p:first-of-type").textContent = "Name: " + newName;
-        document.querySelector("p:nth-of-type(2)").textContent = "Email: " + newEmail;
-        document.querySelector("p:nth-of-type(3)").textContent = "Phone: " + newPhone;
-        document.getElementById("editForm").style.display = "none";
-      });
-    </script>
-  </body>
+<head>
+	<title>Doggy Sitter Profile</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer="" src="./js.js">  </script>
+
+</head>
+<body>
+	<h1>Doggy Sitter Profile</h1>
+	<div class="profile-card">
+		<img class="profile-picture" src="./images/sitterpic.png" alt="Profile Picture">
+		<div>
+			<h2>Joseph Wright</h2>
+			<p class="label">Phone:
+			052-538-1648</p>
+			<p class="label">Email:</p>
+			<p>JosephW@gmail.com</p>
+			<p class="label">Area:</p>
+			<p>Northen District</p>
+			<p class="label">About Me:</p>
+			<p>Hi there! I'm Joseph, an experienced and reliable dog sitter. I provide a safe and loving environment for your dog while you're away, and I am dedicated to ensuring they receive the best possible care.</p>
+			<p class="label">Rank/Rating:</p>
+			<p class="rating">4.5</p>
+			<p class="label">Number of Votes:</p>
+			<p class="votes">32</p> 
+        <a href="doggysitter-profile-edit.html"><button class="edit-button">Edit Profile </button> </a>
+		</div>
+	</div>
+	
+    <footer>
+		<p>&copy; 2023 Doggy-site</p>
+	  </footer>
+</body>
 </html>
+
+
+<!--	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f1f1f1;
+			padding: 50px;
+		}
+
+		h1 {
+			text-align: center;
+			margin-top: 0;
+		}
+
+		.profile-card {
+			background-color: #fff;
+			border-radius: 5px;
+			box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+			padding: 20px;
+			margin-bottom: 20px;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+		}
+
+		.profile-card h2 {
+			margin-top: 0;
+		}
+
+		.profile-card p {
+			margin: 0;
+		}
+
+		.label {
+			font-weight: bold;
+		}
+
+		.rating {
+			color: #f1c40f;
+		}
+
+		.votes {
+			color: #95a5a6;
+		}
+
+		.profile-picture {
+			width: 150px;
+			height: 150px;
+			border-radius: 50%;
+			object-fit: cover;
+			margin-right: 20px;
+		}
+    .edit-button {
+			background-color: #3498db;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			padding: 10px 20px;
+			cursor: pointer;
+			margin-top: 10px;
+		}
+	</style>-->

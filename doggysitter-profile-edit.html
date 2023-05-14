@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Your Doggy-Sitter Profile!
+	</title>
+	<link rel="stylesheet" href="style.css">
+	<script defer="" src="./js.js">  </script>
+<!--	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f1f1f1;
+			padding: 20px;
+		}
+
+		h1 {
+			text-align: center;
+			margin-top: 0;
+		}
+
+		form {
+			background-color: #fff;
+			border-radius: 5px;
+			box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+			padding: 20px;
+			margin-bottom: 20px;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+		}
+
+		label {
+			font-weight: bold;
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		input[type=text], textarea {
+			width: 100%;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			box-sizing: border-box;
+			margin-bottom: 20px;
+			font-size: 16px;
+		}
+
+		input[type=submit] {
+			background-color: #3498db;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			padding: 10px 20px;
+			cursor: pointer;
+			margin-top: 10px;
+		}
+
+		.cancel-button {
+			background-color: #ccc;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			padding: 10px 20px;
+			cursor: pointer;
+			margin-top: 20px;
+			margin-left: 10px;
+		}
+	</style>
+	-->
+</head>
+<body>
+	<h1>Edit Profile</h1>
+	<form>
+		<label for="full-name">Full Name:</label>
+		<input type="text" id="full-name" name="full-name" placeholder="Enter full name" required><br><br>
+	
+		<label for="phone">Phone:</label>
+		<input type="text" id="phone" name="phone" placeholder="Enter phone number" required><br><br>
+	
+		<label for="email">Email:</label>
+		<input type="text" id="email" name="email" placeholder="Enter email address" required><br><br>
+	
+		<label for="area">Area:</label>
+		<select id="area" name="area" required>
+			<option value="">Choose an area</option>
+			<option value="Northern district">Northern district</option>
+			<option value="Central district">Central district</option>
+			<option value="Southern district">Southern district</option>
+		</select><br><br>
+	
+		<label for="about-me">About Me:</label>
+		<textarea id="about-me" name="about-me" placeholder="Enter information about yourself" minlength="50" required></textarea><br><br>
+	
+		<button type="submit" value="Save Changes">Save Changes</button>
+		<button class="cancel-button" onclick="window.location.href='doggy-sitter-profile.html'">Cancel</button>
+	</form>
+	
+    <footer>
+		<p>&copy; 2023 Doggy-site</p>
+	</footer>
+</body>
+</html>
