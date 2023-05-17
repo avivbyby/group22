@@ -93,6 +93,7 @@ form {
     font-size: 16px;
     margin: 10px;
     cursor: pointer;
+    border-radius: 5px;
    
   }
   button:hover {
