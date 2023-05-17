@@ -1,13 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+	<meta charset="UTF-8">
+    <meta name="viewport" 
+       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+       <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Edit Your Profile!
 	</title>
 	<link rel="stylesheet" href="style.css">
 	<script defer="" src="./js.js">  </script>
 </head>
+
 <body>
-	<h1>Edit Profile</h1>
+	<h1>Edit Profile:</h1>
 	<form>
 		<label for="full-name">Full Name:</label>
 		<input type="text" id="full-name" name="full-name" placeholder="Enter full name" required pattern="[A-Za-z ]+"><br><br>
@@ -18,8 +24,25 @@
 		<label for="email">Email:</label>
 		<input type="email" id="email" name="email" placeholder="Enter email address" required><br><br>
 	  
+		<br>
+
+		<h1>Edit dogs:</h1>
+		<label for="name">Name:</label>
+		<input type="text" id="dog_name" name="dog_name" placeholder="Enter name"  required pattern="[A-Za-z]+"><br><br>
+	  
+		<label for="dog age">Age:</label>
+		<input type="number" id="dog_age" name="dog_age" placeholder="Enter dog age" required pattern="\d+(\.\d{1,2})?"><br><br>
+	 
+		<label for="size">Size:</label>
+		<input type="text" id="size" name="size" placeholder="Enter dog size" required pattern="[0-9]{10}"><br><br>
+		
+		<label for="notes">Notes:</label>
+		<input type="text" id="dog_notes" name="dog_notes" maxlength="200" placeholder="Enter dog notes" pattern="^[a-zA-Z0-9\s]{1,200}$"><br><br>
+		 
 		<button type="submit" value="Save Changes">Save Changes</button>
-		<button class="cancel-button" onclick="window.location.href='doggy-sitter-profile.html'">Cancel</button><br>
+		<button class="cancel-button" onclick="window.location.href='profile-client.html'">Cancel</button>
+		<br>
+
 	  </form>
 	  
 	  <footer>

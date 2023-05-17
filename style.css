@@ -3,16 +3,13 @@ body{
       background-repeat: no-repeat;
       background-size: cover;
       text-align:  center;
-      
 }
-
 
 .loginform{
   text-align: center;
 }
 
 .container {
-
   display: grid;
   grid-template-areas:
     "header header"
@@ -25,16 +22,9 @@ body{
 }
 
 header {
-  border-radius: 20px;
   text-align: center;
-  grid-area: header;
-  background-color: grey;
   color: #000000;
   padding: auto;
-}
-#subheader{
-  text-align: center;
-  font-size: 30;
 }
 
 form {
@@ -50,6 +40,7 @@ form {
     border: #8d5d14;
     border-style:solid;
     text-align: center;
+    margin: 0 auto; /* center the table horizontally */
 
   }
 
@@ -99,4 +90,34 @@ form {
   button:hover {
     background-color: #3e8e41;
   }
+
+  .profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+
+/* Style the dog image */
+.dog-animation {
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: auto;
+}
+
+/* Create the animation */
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+/* Apply the animation to the dog image */
+.dog-animation {
+  animation: bounce 2s infinite;
+}
 
