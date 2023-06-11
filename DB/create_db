@@ -1,0 +1,36 @@
+var SQL = require('./db');
+const path = require('path');
+const csv=require('csvtojson');
+const e = require('express');
+
+const CreateTable_DoggySitters = (req,res)=> {
+    
+    var Q1 = "CREATE TABLE DoggySitters (email VARCHAR(50) NOT NULL PRIMARY KEY, fullName VARCHAR(50) NOT NULL, phoneNumber VARCHAR(10) NOT NULL, password VARCHAR(50) NOT NULL, area ENUM ('Northern district', 'Central District', 'Southern District'), description VARCHAR(400), picture BLOB)";
+    SQL.query(Q1,(err,mySQLres)=>{
+        if (err) {
+            console.log("error ", err);
+            return;
+        }
+        console.log('DoggySitters table created succesfully');
+        res.send('DoggySitters database created successfully')
+    })    
+}
+
+module.exports = {CreateTable_DoggySitters}
+
+
+/*
+const CreateTable_DogOwners = (req,res)=> {
+    
+    var Q1 = "CREATE TABLE DogOwners (email VARCHAR(50) NOT NULL PRIMARY KEY, fullName VARCHAR(50) NOT NULL,phoneNumber VARCHAR(10) NOT NULL, address VARCHAR(250) NOT NULL,  password VARCHAR(50) NOT NULL, type ENUM ('DogOwner', 'Doggysitter') NOT NULL)";
+    SQL.query(Q1,(err,mySQLres)=>{
+        if (err) {
+            console.log("error ", err);
+            return;
+        }
+        console.log('Users table created succesfully');
+        res.send('Users database created successfully')
+    })    
+}
+*/
+

@@ -1,0 +1,30 @@
+const sql = require('./db');
+var path = require('path');
+
+const createNewDoggySitter = (req,res)=>{
+    console.log(req.body);   
+    const NewDoggySitter ={
+        
+            "email": req.body.email_sitter,
+            "fullName": req.body.full_name_sitter,
+            "phoneNumber": req.body.phone_number_sitter,
+            "password": req.body.password_sitter,
+            "area": req.body.area,
+            "description": req.body.details_sitter,
+            "picture": req.body.sitter_pic
+        };
+    console.log(NewDoggySitter);
+    var Q1 = "INSERT INTO DoggySitters SET ?";
+    SQL.query(Q1,NewDoggySitter,(err,response)=>{
+        if (err) {
+            console.log("error ", err);
+            return;
+        }
+        console.log('DoggySitter created succesfully');
+        res.send('DoggySitter created successfully')
+        })
+
+    }
+
+
+    module.exports = {createNewDoggySitter}
