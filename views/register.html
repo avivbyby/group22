@@ -17,8 +17,8 @@
   
   <button onclick="openForm1()">I have a dog!</button>
   <button onclick="openForm2()">I am a doggysitter!</button>
-  
-  <form id="form1">
+
+  <form id="form1"  action="/Create_DogOwner" method="post" enctype="multipart/form-data"></form>>
     
     <label for="full_name">Full name:</label>
     <input type="text" id="full_name" name="full_name" required pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$">
@@ -26,6 +26,10 @@
     <br>
     <label for="phone_number">Phone number:</label>
     <input type="text" id="phone_number" name="phone_number" required pattern="^\d{10}$">
+    <br>
+    <br>
+    <label for="password_owner">Password:</label>
+    <input type="password" id="password_owner" name="password_owner"> 
     <br>
     <br>
     <label for="address">Address:</label>
@@ -63,13 +67,12 @@
   <button type="button" onclick="addDog()">Add Dog</button>
   <br>
   <button type="submit" value="Submit">Submit</button>
-
-
-  </form>
+ 
+</form>
   
+ 
   <form id="form2" action="/Create_DoggySitter" method="post" enctype="multipart/form-data">
-
-    
+  
     <label for="full_name_sitter">Full name:</label>
     <input type="text" id="full_name_sitter" name="full_name_sitter" required pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$">
     <br>
@@ -88,10 +91,9 @@
     <br>
     <label for="area">Area:</label>
     <select id="area" name="area">
-      <option value="North">Northen district</option>
-      <option value="Center">Central District</option>
-      <option value="South">Southern District</option>
-      
+      <option value="Northern district">Northern district</option>
+      <option value="Central District">Central District</option>
+      <option value="Southern District">Southern District</option>    
     </select>
     <br>
     <br>
