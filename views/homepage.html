@@ -24,9 +24,9 @@
   </header>
  
 
-    <form>
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" required>
+    <form action="/Login" method="post">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
 
       <br>
       <br>
@@ -37,8 +37,17 @@
       <br>
       <br>
       <br>
-      <button type="submit">Dog-owner Login</button>
-      <button type="submit">Doggysitter Login</button>
+      
+      <input type="radio" id="dogOwner" name="role" value="dogOwner">
+      <label for="dogOwner">Dog Owner</label>
+      
+      <input type="radio" id="doggysitter" name="role" value="doggysitter">
+      <label for="doggysitter">Doggysitter</label>
+      
+      <br>
+      <br>
+
+      <button type="submit">Login</button>
     </form>
    
   <footer>

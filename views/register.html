@@ -18,7 +18,7 @@
   <button onclick="openForm1()">I have a dog!</button>
   <button onclick="openForm2()">I am a doggysitter!</button>
 
-  <form id="form1"  action="/Create_DogOwner" method="post" enctype="multipart/form-data"></form>>
+  <form id="form1" action="/Create_DogOwner" method="post" enctype="multipart/form-data">
     
     <label for="full_name">Full name:</label>
     <input type="text" id="full_name" name="full_name" required pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$">
@@ -40,7 +40,7 @@
     <input type="email" id="email" name="email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
     <br>
     <br>
-    <label for="dogs">Dogs:</label>
+    <label for="dogs">Dog Details:</label>
      <table id="dogs">
       <br>
     <thead>
@@ -64,7 +64,6 @@
     </tbody>
   </table>
   
-  <button type="button" onclick="addDog()">Add Dog</button>
   <br>
   <button type="submit" value="Submit">Submit</button>
  

@@ -12,8 +12,8 @@ const createNewDoggySitter = (req, res) => {
     "area": req.body.area,
     "description": req.body.details_sitter,
     "picture": req.body.sitter_pic,
-    "averageRating": null, 
-    "numberOfRatings": null
+    "averageRating": 3, 
+    "numberOfRatings": 0
   };
   console.log(newDoggySitter);
   var query = "INSERT INTO DoggySitters SET ?";
@@ -27,31 +27,6 @@ const createNewDoggySitter = (req, res) => {
   });
 }
 
-const createNewDog = (req, res) => {
-  console.log(req.body);
-  const newDog = {
-  
-    "dogName": req.body.dog_name,
-    "dogAge": req.body.dog_age,
-    "dogSize": req.body.dog_size,
-    "dogNotes": req.body.dog_notes,
-    "dogPicture": req.body.dog_pic,
-   /* "ownerId": req.body.details_sitter,
-    "owner": req.body.sitter_pic,*/
-
-  };
-  console.log(newDog);
-  var query = "INSERT INTO Dogs SET ?";
-  sql.query(query, newDog, (err, response) => {
-    if (err) {
-      console.log("error ", err);
-      return;
-    }
-    console.log('Dog created successfully');
-    res.send('Dog created successfully');
-  });
-}
-
 const createNewDogOwner = (req, res) => {
   console.log(req.body);
   const newDogOwner = {
@@ -61,8 +36,16 @@ const createNewDogOwner = (req, res) => {
     "phoneNumber": req.body.phone_number,
     "password": req.body.password_owner,
     "address": req.body.address,
-   
   };
+
+  const newDog = {
+    "dogName":req.body.dog_name,
+    "dogAge":req.body.dog_age,
+    "dogSize":req.body.dog_size,
+    "dogNotes":req.body.dog_notes,
+    "dogPicture": req.body.dog_pic
+  }
+  
   console.log(newDogOwner);
   var query = "INSERT INTO DogOwners SET ?";
   sql.query(query, newDogOwner, (err, response) => {
@@ -71,13 +54,58 @@ const createNewDogOwner = (req, res) => {
       return;
     }
     console.log('DogOwner created successfully');
-    res.send('DogOwner created successfully');
+  })
+  var query2 = "INSERT INTO Dogs SET ?";
+  sql.query(query2, newDog, (err, response) => {
+    if (err) {
+      console.log("error ", err);
+      return;
+    }
+    console.log('Dog created successfully');
+    res.send('Dog created successfully');
   });
 }
 
 
 
-module.exports = { createNewDoggySitter,
-                    createNewDog,
-                    createNewDogOwner
-                };
+const login = (req, res) => {
+  const role = req.body.role;
+  const loginInfo = {
+    "Email" : req.body.email,
+    "Password" : req.body.password
+  }
+
+  if (role=="doggysitter"){
+    sql.query("SELECT * FROM DoggySitters where email=? and password=?",[loginInfo.Email,loginInfo.Password], (err, mysqlres)=>{
+ 
+      if (err) {
+        console.log(err);
+      }
+      console.log(mysqlres);
+      if (mysqlres.length > 0) 
+      {
+          console.log("These are the results of the query")
+          console.log(mysqlres);
+       
+          console.log("Youre logged in");
+          res.append('Set-Cookie', 'myEmail='+loginInfo.Email+'; Path=/; HttpOnly');
+          res.redirect('/homepage');
+        }
+else 
+        {
+            res.send("Wrong email or password. Please try again");
+        }			
+ 
+    })};
+    console.log("Trying to login with")
+    console.log(loginInfo);
+  }
+
+
+ 
+
+
+
+
+
+module.exports = {createNewDogOwner,createNewDoggySitter, login};

@@ -5,7 +5,7 @@ const e = require('express');
 
 const CreateTable_DoggySitters = (req,res)=> {
     
-    var Q1 = "CREATE TABLE DoggySitters (email VARCHAR(50) NOT NULL PRIMARY KEY, fullName VARCHAR(50) NOT NULL, phoneNumber VARCHAR(10) NOT NULL, password VARCHAR(50) NOT NULL, area ENUM ('Northern district', 'Central District', 'Southern District'), description VARCHAR(400), picture BLOB, averageRating FLOAT, numberOfRatings INT))";
+    var Q1 = "CREATE TABLE DoggySitters (email VARCHAR(50) NOT NULL PRIMARY KEY, fullName VARCHAR(50) NOT NULL, phoneNumber VARCHAR(10) NOT NULL, password VARCHAR(50) NOT NULL, area ENUM ('Northern district', 'Central District', 'Southern District'), description VARCHAR(400), picture BLOB, averageRating FLOAT, numberOfRatings INT)";
     SQL.query(Q1,(err,mySQLres)=>{
         if (err) {
             console.log("error ", err);
@@ -65,5 +65,4 @@ module.exports = {
   CreateTable_DogOwners,
   CreateTable_SittingHistory
 };
-
 

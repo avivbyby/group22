@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cookie-parser": "^1.4.6",
     "csv-parse": "^5.4.0",
     "csv-stringify": "^6.4.0",
     "csv-writer": "^1.6.0",

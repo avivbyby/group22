@@ -12,6 +12,7 @@ const CSVToJSON = require('csvtojson');
 const bodyParser = require("body-parser");
 const multer = require('multer'); 
 const upload = multer(); 
+const cookieParser = require('cookie-parser');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true
@@ -30,21 +31,26 @@ app.get('/', (req, res) => {
   res.render('homepage.html');
 });
 
+app.get('/homepage', (req, res) => {
+  res.render('homepage.html');
+});
+app.get('/homepagedoggysitter', (req, res) => {
+  res.render('homepagedoggysitter.html');
+});
 app.get('/register', (req, res) => {
   res.render('register.html');
 });
+app.post('/Login', CRUD.login);
 
 app.get('/CreateTable_DoggySitters',CreateDB.CreateTable_DoggySitters);
 app.post('/Create_DoggySitter', upload.none(), CRUD.createNewDoggySitter);
 
 app.get('/CreateTable_Dogs',CreateDB.CreateTable_Dogs);
-app.post('/Create_Dog', upload.none(), CRUD.createNewDog);
 
 app.get('/CreateTable_DogOwners',CreateDB.CreateTable_DogOwners);
 app.post('/Create_DogOwner', upload.none(), CRUD.createNewDogOwner)
 
 app.get('/CreateTable_SittingHistory',CreateDB.CreateTable_SittingHistory);
-
 
 
 app.listen(port,()=>{
