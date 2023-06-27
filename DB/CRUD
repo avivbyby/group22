@@ -67,7 +67,6 @@ const createNewDogOwner = (req, res) => {
 }
 
 
-
 const login = (req, res) => {
   const role = req.body.role;
   const loginInfo = {
@@ -75,33 +74,61 @@ const login = (req, res) => {
     "Password" : req.body.password
   }
 
-  if (role=="doggysitter"){
-    sql.query("SELECT * FROM DoggySitters where email=? and password=?",[loginInfo.Email,loginInfo.Password], (err, mysqlres)=>{
- 
+  if (role == "doggysitter") {
+    sql.query("SELECT * FROM DoggySitters WHERE email=? AND password=?", [loginInfo.Email, loginInfo.Password], (err, mysqlres) => {
       if (err) {
         console.log(err);
       }
       console.log(mysqlres);
-      if (mysqlres.length > 0) 
-      {
-          console.log("These are the results of the query")
-          console.log(mysqlres);
-       
-          console.log("Youre logged in");
-          res.append('Set-Cookie', 'myEmail='+loginInfo.Email+'; Path=/; HttpOnly');
-          res.redirect('/homepage');
-        }
-else 
-        {
-            res.send("Wrong email or password. Please try again");
-        }			
- 
-    })};
-    console.log("Trying to login with")
-    console.log(loginInfo);
+      if (mysqlres.length > 0) {
+        console.log("These are the results of the query");
+        console.log(mysqlres);
+        console.log("You're logged in");
+        res.append('Set-Cookie', 'myEmail=' + loginInfo.Email + '; Path=/; HttpOnly');
+        res.redirect('/homepagedoggysitter');
+        console.log(GetUser(req, res));
+      }
+    });
+  } else if (role == "dogOwner") {
+    sql.query("SELECT * FROM DogOwners WHERE email=? AND password=?", [loginInfo.Email, loginInfo.Password], (err, mysqlres) => {
+      if (err) {
+        console.log(err);
+      }
+      console.log(mysqlres);
+      if (mysqlres.length > 0) {
+        console.log("These are the results of the query");
+        console.log(mysqlres);
+        console.log("You're logged in");
+        res.append('Set-Cookie', 'myEmail=' + loginInfo.Email + '; Path=/; HttpOnly');
+        res.redirect('/homepage-client');
+        console.log(GetUser(req, res));
+      } else {
+        res.send("Wrong email or password. Please try again");
+      }
+    });
   }
 
+  console.log("Trying to login with");
+  console.log(loginInfo);
+}
 
+
+  function GetUser(req,res){
+    if (req.get("Cookie"))
+    {
+       var session = req.get("Cookie");
+       console.log("Session is +"+session)
+       var splitSession = session.split(/=|;/);
+       var email = splitSession[1];
+      return email;
+    }
+    else
+  {
+      console.log("No one is logged in");
+   } 
+    ;
+
+};
  
 
 

@@ -17,6 +17,8 @@ const cookieParser = require('cookie-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true
 }));
+
+
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
@@ -40,6 +42,23 @@ app.get('/homepagedoggysitter', (req, res) => {
 app.get('/register', (req, res) => {
   res.render('register.html');
 });
+
+app.get('/profile-doggysitter', (req, res) => {
+  res.render('profile-doggysitter.html');
+});
+
+app.get('/history-doggysitter', (req, res) => {
+  res.render('history-doggysitter.html');
+});
+
+app.get('/homepage-client', (req, res) => {
+  res.render('homepage-client.html');
+});
+
+app.get('/availability', (req, res) => {
+  res.render('availability.html');
+});
+
 app.post('/Login', CRUD.login);
 
 app.get('/CreateTable_DoggySitters',CreateDB.CreateTable_DoggySitters);

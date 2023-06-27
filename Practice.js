@@ -1,18 +1,26 @@
-const express = require("express");
-const app = express();
-const port= 8080;
+const path=require("path");
+const express= require ("express");
+app = express();
+port= 8080;
 
-app.get  ('/',(req,res) => {
-    res.send ("This is homepage");
+
+app.set('views', path.join(__dirname, 'views'));
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+app.use(express.static(path.join(__dirname, 'public')));
+
+
+
+app.get ('/', (req,res)  => {
+    res.render('Home.html');
 })
 
-app.get ('/register', (req,res) => {
-    res.send ("This is registration page")
+app.get ('/grid', (req,res) => {
+    res.render('grid.html');
 })
-  
 
-  
 
-app.listen (port,()=>{
-    console.log("Serve is running on:"+port)
-});
+
+app.listen(port,()=>{
+    console.log("Server is running on port"+port)
+  });
