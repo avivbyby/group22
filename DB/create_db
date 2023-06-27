@@ -16,6 +16,21 @@ const CreateTable_DoggySitters = (req,res)=> {
     })    
 }
 
+const DropTable_DoggySitters = (req, res) => {
+  const query = "DROP TABLE IF EXISTS DoggySitters";
+  
+  SQL.query(query, (err, result) => {
+    if (err) {
+      console.log("Error: ", err);
+      res.status(500).send("An error occurred while dropping the DoggySitters table.");
+      return;
+    }
+    
+    console.log("DoggySitters table dropped successfully");
+    res.send("DoggySitters table dropped successfully");
+  });
+};
+
 
 const CreateTable_Dogs = (req, res) => {
   const Q3 = "CREATE TABLE Dogs (dogName VARCHAR(50) NOT NULL, dogAge INT NOT NULL, dogSize ENUM('Small', 'Medium', 'Large'), dogNotes VARCHAR(200), dogPicture BLOB, ownerId INT, FOREIGN KEY (owner) REFERENCES DogOwners(email))";
@@ -30,6 +45,22 @@ const CreateTable_Dogs = (req, res) => {
   });
 };
 
+const DropTable_Dogs = (req, res) => {
+  const query = "DROP TABLE IF EXISTS Dogs";
+  
+  SQL.query(query, (err, result) => {
+    if (err) {
+      console.log("Error: ", err);
+      res.status(500).send("An error occurred while dropping the Dogs table.");
+      return;
+    }
+    
+    console.log("Dogs table dropped successfully");
+    res.send("Dogs table dropped successfully");
+  });
+};
+
+
 
 const CreateTable_DogOwners = (req, res) => {
   const Q2 = "CREATE TABLE DogOwners (email VARCHAR(50) NOT NULL PRIMARY KEY, fullName VARCHAR(50) NOT NULL, phoneNumber VARCHAR(10) NOT NULL,  password VARCHAR(50) NOT NULL, address VARCHAR(100) NOT NULL)";
@@ -41,6 +72,21 @@ const CreateTable_DogOwners = (req, res) => {
     }
     console.log('DogOwners table created successfully');
     res.send('DogOwners database created successfully');
+  });
+};
+
+const DropTable_DogOwners = (req, res) => {
+  const query = "DROP TABLE IF EXISTS DogOwners";
+  
+  SQL.query(query, (err, result) => {
+    if (err) {
+      console.log("Error: ", err);
+      res.status(500).send("An error occurred while dropping the DogOwners table.");
+      return;
+    }
+    
+    console.log("DogOwners table dropped successfully");
+    res.send("DogOwners table dropped successfully");
   });
 };
 
@@ -59,10 +105,31 @@ const CreateTable_SittingHistory = (req, res) => {
 };
 
 
+const DropTable_SittingHistory = (req, res) => {
+  const query = "DROP TABLE IF EXISTS SittingHistory";
+  
+  SQL.query(query, (err, result) => {
+    if (err) {
+      console.log("Error: ", err);
+      res.status(500).send("An error occurred while dropping the SittingHistory table.");
+      return;
+    }
+    
+    console.log("SittingHistory table dropped successfully");
+    res.send("SittingHistory table dropped successfully");
+  });
+};
+
+
 module.exports = {
   CreateTable_DoggySitters,
   CreateTable_Dogs,
   CreateTable_DogOwners,
-  CreateTable_SittingHistory
+  CreateTable_SittingHistory,
+  DropTable_DoggySitters,
+  DropTable_Dogs,
+  DropTable_DogOwners,
+  DropTable_SittingHistory
+
 };
 

@@ -61,8 +61,8 @@ const createNewDogOwner = (req, res) => {
       console.log("error ", err);
       return;
     }
-    console.log('Dog created successfully');
-    res.send('Dog created successfully');
+    console.log('Dog owner created successfully');
+    res.send('Dog owner created successfully');
   });
 }
 
@@ -130,9 +130,5 @@ const login = (req, res) => {
 
 };
  
-
-
-
-
 
 module.exports = {createNewDogOwner,createNewDoggySitter, login};
