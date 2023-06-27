@@ -1,0 +1,31 @@
+Requirements:
+
+Modules installed:
+express
+MySQL
+fs
+stringify
+csv-parse
+csvtojson
+body-parser
+multer
+cookie-parser
+
+Dropping tables paths:
+app.get('/DropTable_DoggySitters', CreateDB.DropTable_DoggySitters)
+app.get('/DropTable_Dogs', CreateDB.DropTable_Dogs)
+app.get('/DropTable_DogOwners', CreateDB.DropTable_DogOwners)
+app.get('/DropTable_SittingHistory', CreateDB.DropTable_SittingHistory)
+
+Creating tables syntax:
+   
+CREATE TABLE DoggySitters (email VARCHAR(50) NOT NULL PRIMARY KEY, fullName VARCHAR(50) NOT NULL, phoneNumber VARCHAR(10) NOT NULL, password VARCHAR(50) NOT NULL, area ENUM ('Northern district', 'Central District', 'Southern District'), description VARCHAR(400), picture BLOB, averageRating FLOAT, numberOfRatings INT)
+
+
+CREATE TABLE Dogs (dogName VARCHAR(50) NOT NULL, dogAge INT NOT NULL, dogSize ENUM('Small', 'Medium', 'Large'), dogNotes VARCHAR(200), dogPicture BLOB, ownerId INT, FOREIGN KEY (owner) REFERENCES DogOwners(email))
+
+CREATE TABLE DogOwners (email VARCHAR(50) NOT NULL PRIMARY KEY, fullName VARCHAR(50) NOT NULL, phoneNumber VARCHAR(10) NOT NULL,  password VARCHAR(50) NOT NULL, address VARCHAR(100) NOT NULL)
+
+CREATE TABLE SittingHistory (owner VARCHAR(50) NOT NULL, sitter VARCHAR(50) NOT NULL, fromDate DATE, toDate DATE, fromTime TIME, toTime TIME, price DECIMAL(10, 2), numOfDogs INT, FOREIGN KEY (owner) REFERENCES DogOwners(email), FOREIGN KEY (sitter) REFERENCES DoggySitters(email))";
+
+
