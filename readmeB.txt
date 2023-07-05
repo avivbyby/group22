@@ -9,6 +9,11 @@ you will navigate through the services  we offer in the site whether you are a c
 Files and directories
 The website contains the following images , CSS  , JS and HTML files 
 
+Path for dropping all tables at once:
+http://localhost:3000/DropAllTables
+
+app.get('/DropAllTables', CreateDB.DropAllTables)
+
 homepage.html: This is the main HTML file that contains the login form.
 style.css: This file contains the CSS styling for the website.
 js.js: This is the JavaScript file that contains the code for the dog animation.
