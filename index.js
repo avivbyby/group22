@@ -41,6 +41,63 @@ app.get('/register', (req, res) => {
   res.render('register.html');
 });
 
+
+const createTablesAndInsertValues = (res) => {
+  CreateDB.CreateTable_DoggySitters(null, (err, result) => {
+    if (err) {
+      console.log("Error creating DoggySitters table: ", err);
+    } else {
+      console.log("DoggySitters table created successfully");
+      CreateDB.Insert_DoggySitters(null, (err, result) => {
+        if (err) {
+          console.log("Error inserting data into DoggySitters table: ", err);
+        } else {
+          console.log("Data inserted into DoggySitters table successfully");
+          CreateDB.CreateTable_Dogs(null, (err, result) => {
+            if (err) {
+              console.log("Error creating Dogs table: ", err);
+            } else {
+              console.log("Dogs table created successfully");
+              CreateDB.Insert_Dogs(null, (err, result) => {
+                if (err) {
+                  console.log("Error inserting data into Dogs table: ", err);
+                } else {
+                  console.log("Data inserted into Dogs table successfully");
+                  CreateDB.CreateTable_DogOwners(null, (err, result) => {
+                    if (err) {
+                      console.log("Error creating DogOwners table: ", err);
+                    } else {
+                      console.log("DogOwners table created successfully");
+                      CreateDB.Insert_DogOwners(null, (err, result) => {
+                        if (err) {
+                          console.log("Error inserting data into DogOwners table: ", err);
+                        } else {
+                          console.log("Data inserted into DogOwners table successfully");
+                          CreateDB.CreateTable_SittingHistory(null, (err, result) => {
+                            if (err) {
+                              console.log("Error creating SittingHistory table: ", err);
+                            } else {
+                              console.log("SittingHistory table created successfully");
+                            }
+                          });
+                        }
+                      });
+                    }
+                  });
+                }
+              });
+            }
+          });
+        }
+      });
+    }
+  });
+};
+
+createTablesAndInsertValues();
+
+app.get('/DropAllTables', CreateDB.DropAllTables)
+
 app.get('/homepagedoggysitter', (req, res) => {
   res.render('homepagedoggysitter.html');
 });
@@ -103,6 +160,8 @@ app.get('/DropTable_SittingHistory', CreateDB.DropTable_SittingHistory)
 
 app.post('/Create_DogOwner', upload.none(), CRUD.createNewDogOwner)
 app.post('/Create_DoggySitter', upload.none(), CRUD.createNewDoggySitter);
+
+
 
 
 app.listen(port,()=>{

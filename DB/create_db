@@ -199,6 +199,22 @@ const DropTable_SittingHistory = (req, res) => {
   });
 };
 
+const DropAllTables = (req, res) => {
+  const dropQuery = "DROP TABLE IF EXISTS DoggySitters, Dogs, DogOwners, SittingHistory";
+
+  SQL.query(dropQuery, (err, result) => {
+    if (err) {
+      console.log("Error: ", err);
+      res.status(500).send("An error occurred while dropping the tables.");
+      return;
+    }
+
+    console.log("All tables dropped successfully");
+    res.send("All tables dropped successfully");
+  });
+};
+
+
 
 
 module.exports = {
@@ -212,7 +228,8 @@ module.exports = {
   DropTable_SittingHistory,
   Insert_DoggySitters,
   Insert_DogOwners,
-  Insert_Dogs
+  Insert_Dogs,
+  DropAllTables
 
 };
 
