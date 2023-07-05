@@ -32,6 +32,32 @@ const DropTable_DoggySitters = (req, res) => {
 };
 
 
+const Insert_DoggySitters = (req, res) => {
+  const csvPath = path.join(__dirname, "DoggySitters.csv");
+  csv()
+    .fromFile(csvPath)
+    .then((jsonObj) => {
+      const query = "INSERT INTO DoggySitters (email, fullName, phoneNumber, password, area) VALUES ?";
+      const values = jsonObj.map((item) => [
+        item.email,
+        item.fullName,
+        item.phoneNumber,
+        item.password,
+        item.area
+      ]);
+
+      SQL.query(query, [values], (err, result) => {
+        if (err) {
+          console.log("Error: ", err);
+          res.status(500).send("An error occurred while inserting data into DoggySitters table.");
+          return;
+        }
+        console.log("Data inserted into DoggySitters table successfully");
+        res.send("Data inserted into DoggySitters table successfully");
+      });
+    });
+};
+
 const CreateTable_Dogs = (req, res) => {
   const Q3 = "CREATE TABLE Dogs (dogName VARCHAR(50) NOT NULL, dogAge INT NOT NULL, dogSize ENUM('Small', 'Medium', 'Large'), dogNotes VARCHAR(200), dogPicture BLOB, ownerId INT, FOREIGN KEY (owner) REFERENCES DogOwners(email))";
 
@@ -60,6 +86,34 @@ const DropTable_Dogs = (req, res) => {
   });
 };
 
+
+const Insert_Dogs = (req, res) => {
+  const csvPath = path.join(__dirname, "Dogs.csv");
+  csv()
+    .fromFile(csvPath)
+    .then((jsonObj) => {
+      const query = "INSERT INTO Dogs (dogName, dogAge, dogSize, dogNotes) VALUES ?";
+      const values = jsonObj.map((item) => [
+        item.dogName,
+        item.dogAge,
+        item.dogSize,
+        item.dogNotes
+      ]);
+
+      SQL.query(query, [values], (err, result) => {
+        if (err) {
+          console.log("Error: ", err);
+          res.status(500).send("An error occurred while inserting data into Dogs table.");
+          return;
+        }
+        console.log("Data inserted into Dogs table successfully");
+        res.send("Data inserted into Dogs table successfully");
+      });
+    });
+};
+
+
+
 const CreateTable_DogOwners = (req, res) => {
   const Q2 = "CREATE TABLE DogOwners (email VARCHAR(50) NOT NULL PRIMARY KEY, fullName VARCHAR(50) NOT NULL, phoneNumber VARCHAR(10) NOT NULL,  password VARCHAR(50) NOT NULL, address VARCHAR(100) NOT NULL)";
 
@@ -86,6 +140,33 @@ const DropTable_DogOwners = (req, res) => {
     console.log("DogOwners table dropped successfully");
     res.send("DogOwners table dropped successfully");
   });
+};
+
+
+const Insert_DogOwners = (req, res) => {
+  const csvPath = path.join(__dirname, "DogOwners.csv");
+  csv()
+    .fromFile(csvPath)
+    .then((jsonObj) => {
+      const query = "INSERT INTO DogOwners (email, fullName, phoneNumber, password, address) VALUES ?";
+      const values = jsonObj.map((item) => [
+        item.email,
+        item.fullName,
+        item.phoneNumber,
+        item.password,
+        item.address
+      ]);
+
+      SQL.query(query, [values], (err, result) => {
+        if (err) {
+          console.log("Error: ", err);
+          res.status(500).send("An error occurred while inserting data into DogOwners table.");
+          return;
+        }
+        console.log("Data inserted into DogOwners table successfully");
+        res.send("Data inserted into DogOwners table successfully");
+      });
+    });
 };
 
 const CreateTable_SittingHistory = (req, res) => {
@@ -119,34 +200,6 @@ const DropTable_SittingHistory = (req, res) => {
 };
 
 
-const Insert = (req,res)=>{
-  const NewData = {
-      name: "A Name",
-      email: "email@gmail.com"
-  };
-  const csvPath = path.join(__dirname, "dataexample.csv");
-  csv().fromFile(csvPath).then((jsonObj)=>{
-      console.log(jsonObj);
-      for (let i = 0; i < jsonObj.length; i++) {
-          const element = jsonObj[i];
-          console.log(element);
-          const NewCsvData = {
-              name: element.name,
-              email: element.email
-          }; 
-          const Q4 = "insert into Table01 set ?";
-          sql.query(Q4, NewCsvData, (err, mysqlres)=>{
-          if (err) {
-              throw err
-          }
-         
-          });}
-      
-      });
-  res.send("done");
-  };
-
-
 
 module.exports = {
   CreateTable_DoggySitters,
@@ -156,7 +209,10 @@ module.exports = {
   DropTable_DoggySitters,
   DropTable_Dogs,
   DropTable_DogOwners,
-  DropTable_SittingHistory
+  DropTable_SittingHistory,
+  Insert_DoggySitters,
+  Insert_DogOwners,
+  Insert_Dogs
 
 };
 

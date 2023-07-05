@@ -87,13 +87,16 @@ app.post('/Login', CRUD.login);
 
 app.get('/CreateTable_DoggySitters',CreateDB.CreateTable_DoggySitters);
 app.get('/DropTable_DoggySitters', CreateDB.DropTable_DoggySitters)
+app.get('/insertTable_doggysitter', CreateDB.Insert_DoggySitters)
 
 
 app.get('/CreateTable_Dogs',CreateDB.CreateTable_Dogs);
 app.get('/DropTable_Dogs', CreateDB.DropTable_Dogs)
+app.get('/insertTable_dogs', CreateDB.Insert_Dogs)
 
 app.get('/CreateTable_DogOwners',CreateDB.CreateTable_DogOwners);
 app.get('/DropTable_DogOwners', CreateDB.DropTable_DogOwners)
+app.get('/insertTable_dogOwner', CreateDB.Insert_DogOwners)
 
 app.get('/CreateTable_SittingHistory',CreateDB.CreateTable_SittingHistory);
 app.get('/DropTable_SittingHistory', CreateDB.DropTable_SittingHistory)
